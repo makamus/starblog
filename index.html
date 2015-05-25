@@ -1,53 +1,40 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+    <meta name="description" content="Starblog : Starting NodeManager ,But it&#39;s not running ?">
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Starblog by makamus</title>
+    <title>Starblog</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/makamus/starblog">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Starblog</h1>
-            <h2>Starting NodeManager ,But it&#39;s not running ?</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/makamus/starblog">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/makamus/starblog/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/makamus/starblog/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Starblog</h1>
+          <h2 id="project_tagline">Starting NodeManager ,But it&#39;s not running ?</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/makamus/starblog/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/makamus/starblog/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <p>we  start  full cluster , but it's slaves doesn't startup. 
-see slave log:</p>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <ol>
+<li>we  start  full cluster , but it's slaves doesn't startup. 
+see slave log:</li>
+</ol>
 
 <p>2015-05-25 18:53:35,644 FATAL org.apache.hadoop.yarn.server.nodemanager.NodeManager: Error starting NodeManager
 org.apache.hadoop.yarn.exceptions.YarnRuntimeException: org.apache.hadoop.yarn.exceptions.YarnRuntimeException: Recieved SHUTDOWN signal from Resourcemanager ,Registration of NodeManager failed, Message from ResourceManager: NodeManager from  bjzw1247 doesn't satisfy minimum allocations, Sending SHUTDOWN signal to the NodeManager.
@@ -80,19 +67,14 @@ STARTUP_MSG: Starting NodeManager</p>
 <p>应该是yarn-site.xml中的内存参数设置的问题，好像不能设置1G以下的.
 通过注释掉yarn.nodemanager.resource.memory-mb此参数的设置，或者改用较大的内存，将正常启动</p>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/makamus">makamus</a> can be found on <a href="https://github.com/makamus/starblog">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Starblog maintained by <a href="https://github.com/makamus">makamus</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
               <script type="text/javascript">
@@ -105,6 +87,7 @@ STARTUP_MSG: Starting NodeManager</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
