@@ -1,0 +1,63 @@
+准备三台机器：
+
+1. 设置ssh无密码登陆（略）#可参考课程PPT或者 http://my.oschina.net/u/1169607/blog/175899
+
+2. 安装JDK（略）#CentOS7.0 带的OpenJDK版本是1.7，已经可用，不用另外安装。 #export JAVA_HOME=/usr/lib/jvm/java  
+
+3. 安装相关软件：yum install maven svn ncurses-devel gcc* lzo-devel zlib-devel autoconf automake libtool cmake openssl-devel  （三台机器均安装）  //如果安装的是binary，则无需安装这些
+
+4. 关闭防火墙 （三台机器全部关闭）
+
+# systemctl status firewalld.service  --查看防火墙状态# systemctl stop firewalld.service    --关闭防火墙# systemctl disable firewalld.service --永久关闭防火墙
+
+-------- 以下操作是在Master机上面进行的 ---------
+
+5. 下载解压Hadoop 2.6.0个人目录下面 http://apache.fayea.com/hadoop/c ... hadoop-2.6.0.tar.gz    
+
+6. 创建目录，切换到刚解压的HADOOP目录
+
+$ mkdir -p dfs/name
+$ mkdir -p dfs/data
+$ mkdir -p tmp
+$ cd etc/hadoop
+
+7. 修改hadoop-env.sh和yarn-env.sh 
+$ vim hadoop-env.sh / vim yarn-env.sh
+
+8. 修改core-site.xml文件
+
+
+9. 修改hdfs-site.xml文件
+
+
+10. 修改修改mapred-site.xml文件
+
+
+11. 修改yarn-site.xml文件
+
+
+12. 分发master机器上的hadoop文件到slave机器上
+
+
+13. 格式化namenode (Master机器上面）
+
+$ ./bin/hdfs namenode -format
+
+14. 启动hdfs （Master机器上面）
+启动时可能遇到报出几个错误：
+
+
+
+
+Incorrect configuration: namenode address dfs.namenode.servicerpc-address or dfs.namenode.rpc-address is not configured.
+解决办法：
+etc/hadoop/core-site.xml中增加如下配置
+<property>
+<name>fs.default.name</name>
+<value>hdfs://bjzw1246:9000</value>
+</property>
+重新启动
+
+针对问题1截图，主机使用的hostname不合法，修改为不包含着‘.’ '/' '_'等非法字符的主机名
+
+
